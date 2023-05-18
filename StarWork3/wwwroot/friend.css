@@ -1,0 +1,37 @@
+﻿
+body {
+    margin: 0;
+    margin-top: 20px;
+    height: 100%;
+    width: 100%;
+    font-family: Ubuntu-Regular, sans-serif;
+}
+
+.friend-menu {
+    margin-left: 160px;
+    width: 500px;
+    margin: 0 auto;
+}
+
+.all-func-friend-button {
+    text-align: center;
+}
+
+.all-func-friend-button button {
+    display: inline-block;
+}
+
+.but {
+    padding: 0 20px;
+    height: 40px;
+    background-color: #353635;
+    border-radius: 25px;
+    font-size: 20px;
+    color: #fff;
+    line-height: 1.2;
+    transition: all 0.4s;
+}
+
+    .but:hover {
+        background-color: #202120;
+    }

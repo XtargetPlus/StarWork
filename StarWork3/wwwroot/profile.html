@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Login_v8/css/util.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <title>Профиль</title>
+</head>
+<body style="background-color: antiquewhite">
+    <div id="profileContainer" class="container border border-dark rounded-2 mt-4 bg-white">
+        <div class="p-2 mt-3 mb-3">
+            <p class="h2 text-center">Профиль</p>
+        </div>
+        <div class="m-l-20 mb-3">
+            <div class="d-flex row p-b-15">
+                <div class="col-2 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Ник: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="nick"
+                           type="text"
+                           disabled />
+                </div>
+            </div>
+            <div class="d-flex row p-b-15">
+                <div class="col-2 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Мобильный номер: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="mobileNumber"
+                           type="text"
+                           disabled />
+                </div>
+            </div>
+            <div class="d-flex row p-b-15">
+                <div class="col-2 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Почта: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="email"
+                           type="email"
+                           disabled />
+                </div>
+            </div>
+            <div class="d-flex row p-b-15">
+                <div class="col-2 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Возраст: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="age"
+                           type="number"
+                           disabled />
+                </div>
+            </div>
+            <div class="d-flex row p-b-15">
+                <div class="col-2 d-flex align-items-top">
+                    <p class="h5" style="margin-bottom: 0px;">Описание: </p>
+                </div>
+                <div class="col-3">
+                    <textarea class="form-control border" id="description" rows="4" disabled></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="m-l-20 mb-5">
+            <div class="row">
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="edit">Редактировать</button>
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="saveEdit" hidden>Сохранить</button>
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="cancelEdit" hidden>Отмена</button>
+
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="editLogin">Изменить логин</button>
+
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="editPassword">Изменить пароль</button>
+
+                <button class="col-2 btn btn-danger" type="button" id="delete">Удалить профиль</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginContainer" class="container border border-dark rounded-2 mt-4 bg-white" hidden>
+        <div class="p-2 mt-3 mb-3">
+            <p class="h2 text-center">Изменение логина</p>
+        </div>
+        <div class="m-l-20 mb-3">
+            <div class="row p-b-15">
+                <div class="col-3 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Введите старый логин: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="oldLogin"
+                           type="text" />
+                </div>
+            </div>
+            <div class="row p-b-15">
+                <div class="col-3 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Введите новый логин: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="newLogin"
+                           type="text" />
+                </div>
+            </div>
+        </div>
+        <div class="m-l-20 mb-5">
+            <div class="row">
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="saveEditLogin">Сохранить</button>
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="cancelEditLogin">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="passwordContainer" class="container border border-dark rounded-2 mt-4 bg-white" hidden>
+        <div class="p-2 mt-3 mb-3">
+            <p class="h2 text-center">Изменение пароля</p>
+        </div>
+        <div class="m-l-20 mb-3">
+            <div class="row p-b-15">
+                <div class="col-3 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Введите старый пароль: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="oldPassword"
+                           type="password" />
+                </div>
+            </div>
+            <div class="row p-b-15">
+                <div class="col-3 d-flex align-items-center">
+                    <p class="h5" style="margin-bottom: 0px;">Введите новый пароль: </p>
+                </div>
+                <div class="col-3">
+                    <input class="form-control border"
+                           id="newPassword"
+                           type="password" />
+                </div>
+            </div>
+        </div>
+        <div class="m-l-20 mb-5">
+            <div class="row">
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="saveEditPassword">Сохранить</button>
+                <button class="col-2 btn btn-primary m-r-25" type="button" id="cancelEditPassword">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-bottom: 30px"></footer>
+
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <script src="profile.js"></script>
+</body>
+</html>

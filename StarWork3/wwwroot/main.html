@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/main_style.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+</head>
+<body>
+    <div class="sidenav">
+        <div class="menu">
+            <p>Меню</p>
+        </div>
+        <a href="#" class="pad" id="chats">Чаты</a>
+        <a href="#" class="pad" id="friends">Друзья</a>
+        <a href="#" class="pad" id="profile">Профиль</a>
+        <div class="bottom">
+            <a href="#" id="logOut">Выйти</a>
+        </div>
+    </div>
+
+    <div class="main-iframe">
+        <iframe width=100% height=100% id="main_frame">
+        </iframe>
+    </div>
+
+    <script src="/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="/main_script.js"></script>
+</body>
+</html>

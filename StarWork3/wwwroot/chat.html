@@ -1,0 +1,358 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Login_v8/css/util.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <title>Сообщения</title>
+    <style>
+        .scrollview {
+            overflow: auto;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+            .scrollview::-webkit-scrollbar {
+                display: none;
+            }
+    </style>
+</head>
+<body style="background-color: antiquewhite">
+    <div class="row">
+        <div class="col-5">
+            <div class="m-l-125">
+                <div class="container border border-dark rounded-top mt-5 bg-white">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <div class="d-flex align-items-center justify-content-start col-6">
+                            <p style="margin: 0px;" class="h5">Список чатов</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-end col-auto m-l-70">
+                            <button class="btn btn-primary" type="button" id="createChatButton">Создать чат</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container border border-dark rounded-bottom bg-white">
+                    <div id="chats" class="p-2 mt-2">
+                        <!--<a id="chat1" href="#">
+                        <div style="background-color: #eee;" class="row rounded-2 p-t-15 p-b-15">
+                            <div class="m-l-10 col-8 text-dark">
+                                <p style="margin: 0px;" class="d-flex align-items-center h5">Какой то текст</p>
+                                <p style="margin: 0px;" class="d-flex align-items-center">Какой то текст</p>
+                            </div>
+                            <div class="col-auto d-flex align-items-end text-dark">
+                                <p style="margin: 0px;">60 минут назад</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6 border border-dark rounded-2 bg-white"></div>
+                    </div>
+                    <a id="chat2" href="#">
+                        <div class="row rounded-2 p-t-15 p-b-15">
+                            <div class="m-l-10 col-8 text-dark">
+                                <p style="margin: 0px;" class="d-flex align-items-center h5">Какой то текст</p>
+                                <p style="margin: 0px;" class="d-flex align-items-center">Какой то текст</p>
+                            </div>
+                            <div class="col-auto d-flex align-items-end text-dark">
+                                <p style="margin: 0px;">1 день назад</p>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6 border border-dark rounded-2 bg-white"></div>
+                    </div>-->
+                    </div>
+                    <div class="p-2 mt-3"></div>
+                </div>
+            </div>
+        </div>
+        <div id="chatContainer" class="col-7" hidden>
+            <div class="m-r-125">
+                <div class="container border border-dark rounded-top mt-5 bg-dark">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <div class="m-l-10 d-flex align-items-center justify-content-start col-8">
+                            <p style="margin: 0px;" id="chatName" class="h5 text-white">Какой-то чат</p>
+                        </div>
+                        <div id="chatMoreInfoButton" class="d-flex align-items-center justify-content-end col-auto m-l-70">
+                            <!--<button class="btn btn-primary" type="button" id="moreInfoChat">Подробнее</button>-->
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 500px;" class="scrollview container border border-dark bg-white">
+                    <div id="messages" class="mt-4 mb-4">
+                        <!--<div class="row p-l-10">
+                            <div class="d-flex justify-content-start">
+                                <p style="margin: 0px" class="h5">Ваня&nbsp;</p>
+                                <p style="margin: 0px">8:32</p>
+                            </div>
+                            <p>Еще что то aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br />aaaaaaaaaaaaaaaa</p>
+                        </div>
+                        <div class="p-r-10 row">
+                            <div class="d-flex justify-content-end">
+                                <p style="margin: 0px" class="h5">Олег&nbsp;</p>
+                                <p style="margin: 0px">15:45</p>
+                            </div>
+                            <p class="text-end">Еще что тоaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        </div>
+                        <div class="row p-l-10">
+                            <div class="d-flex justify-content-start">
+                                <p style="margin: 0px" class="h5">Ваня&nbsp;</p>
+                                <p style="margin: 0px">8:32</p>
+                            </div>
+                            <p>Еще что то</p>
+                        </div>
+                        <div class="p-r-10 row">
+                            <div class="d-flex justify-content-end">
+                                <p style="margin: 0px" class="h5">Олег&nbsp;</p>
+                                <p style="margin: 0px">15:45</p>
+                            </div>
+                            <p class="text-end">Еще что то</p>
+                        </div>
+                        <div class="p-r-10 row">
+                            <div class="d-flex justify-content-end">
+                                <p style="margin: 0px" class="h5">Олег&nbsp;</p>
+                                <p style="margin: 0px">15:45</p>
+                            </div>
+                            <p class="text-end">Еще что тоaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+                        </div>
+                        <div class="row p-l-10">
+                            <div class="d-flex justify-content-start">
+                                <p style="margin: 0px" class="h5">Ваня&nbsp;</p>
+                                <p style="margin: 0px">8:32</p>
+                            </div>
+                            <p>Еще что то</p>
+                        </div>
+                        <div class="p-r-10 row">
+                            <div class="d-flex justify-content-end">
+                                <p style="margin: 0px" class="h5">Олег&nbsp;</p>
+                                <p style="margin: 0px">15:45</p>
+                            </div>
+                            <p class="text-end">Еще что то</p>
+                        </div>
+                        <div class="p-r-10 row">
+                            <div class="d-flex justify-content-end">
+                                <p style="margin: 0px" class="h5">Олег&nbsp;</p>
+                                <p style="margin: 0px">15:45</p>
+                            </div>
+                            <p class="text-end">Еще что то</p>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="container border border-dark rounded-bottom bg-dark">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <div class="m-l-10 d-flex align-items-center justify-content-start col-8">
+                            <div class="form-outline form-white">
+                                <input type="text" id="textMessage" class="form-control" />
+                                <label class="form-label" for="textMessage">Текст</label>
+                            </div>
+                        </div>
+                        <div id="chatSendMessageButton" class="d-flex align-items-center justify-content-end col-auto m-l-70">
+                            <!--<button class="btn btn-primary" type="button" id="moreInfoChat">Отправить</button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="createChatContainer" class="col-7" hidden>
+            <div class="m-r-125">
+                <div class="container border border-dark rounded-top mt-5 bg-dark">
+                    <div class="p-2 mt-3 mb-3 m-l-10 d-flex align-items-center justify-content-center">
+                        <p style="margin: 0px;" class="h3 text-white">Создание</p>
+                    </div>
+                </div>
+                <div style="height: auto" class="container border border-dark bg-white">
+                    <div class="m-l-20 mt-4 mb-4">
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-center">
+                                <p class="h5" style="margin-bottom: 0px;">Имя чата: </p>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control border"
+                                       id="creatingChatName"
+                                       type="text" />
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-top">
+                                <p class="h5" style="margin-bottom: 0px;">Описание: </p>
+                            </div>
+                            <div class="col-6">
+                                <textarea class="form-control border" id="creatingChatNote" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <table class="table align-middle mb-0 bg-white">
+                                <thead class="bg-light border text-center" scope="col">
+                                    <tr>
+                                        <th class="col-3" style="cursor: pointer;">
+                                            Ник пользователя
+                                        </th>
+                                        <th class="col-2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="friendsTable" class="text-center">
+                                    <!--<tr>
+                                    <td>Мой друг</td>
+                                    <td>
+                                        <input class="form-check-input" type="checkbox" id="friendToChat" />
+                                    </td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="d-flex row p-b-15 align-items-center justify-content-center">
+                            <button class="col-3 btn btn-primary" type="button" id="creatingChat">Создать</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container border border-dark rounded-bottom bg-dark">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <p style="margin: 0px;" class="h3 text-dark">Что то</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="chatInfo" class="col-7" hidden>
+            <div class="m-r-125">
+                <div class="container border border-dark rounded-top mt-5 bg-dark">
+                    <div class="p-2 mt-3 mb-3 m-l-10 d-flex align-items-center justify-content-center">
+                        <p style="margin: 0px;" class="h3 text-white">Информация</p>
+                    </div>
+                </div>
+                <div style="height: auto" class="container border border-dark bg-white">
+                    <div class="m-l-20 mt-4 mb-4">
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-center">
+                                <p class="h5" style="margin-bottom: 0px;">Имя чата: </p>
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control border"
+                                       id="infoChatName"
+                                       type="text" disabled />
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-top">
+                                <p class="h5" style="margin-bottom: 0px;">Описание: </p>
+                            </div>
+                            <div class="col-6">
+                                <textarea class="form-control border" id="infoChatNote" rows="4" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <table class="table align-middle mb-0 bg-white">
+                                <thead class="bg-light border text-center" scope="col">
+                                    <tr id="trChatInfo">
+                                        <th class="col-3" style="cursor: pointer;">
+                                            Участники
+                                        </th>
+                                        <th class="col-2"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="infoUsersInChatTable" class="text-center">
+                                    <!--<tr>
+                                    <td>Мой друг</td>
+                                    <td>
+                                        <button class="btn btn-primary" type="button" id="prifleFutureFriend">Профиль</button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" type="button" id="prifleFutureFriend">Удалить</button>
+                                    </td>
+                                </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="chatInfoButtons" class="d-flex mt-4 row p-b-15 align-items-center justify-content-start">
+                            <!--<button class="m-l-30 col-3 btn btn-primary" type="button" id="closeChatInfo">Закрыть</button>
+                        <button class="m-l-30 col-3 btn btn-danger" type="button" id="exitFromChat">Выйти</button>
+                        <button class="m-l-15 col-3 btn btn-primary" type="button" id="updateChatInfo" hidden>Подтвердить</button>
+                        <button class="m-l-30 col-3 btn btn-danger" type="button" id="cancelEditChatInfo" hidden>Отмена</button>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="container border border-dark rounded-bottom bg-dark">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <p style="margin: 0px;" class="h3 text-dark">Что то</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="profile" class="col-7" hidden>
+            <input id="backToChat" type="number" hidden disabled readonly />
+            <div class="m-r-125">
+                <div class="container border border-dark rounded-top mt-5 bg-dark">
+                    <div class="p-2 mt-3 mb-3 m-l-10 d-flex align-items-center justify-content-center">
+                        <p style="margin: 0px;" class="h3 text-white">Профиль</p>
+                    </div>
+                </div>
+                <div style="height: auto" class="container border border-dark bg-white">
+                    <div class="m-l-20 mt-4 mb-4">
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-center">
+                                <p class="h5" style="margin-bottom: 0px;">Ник: </p>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control border"
+                                       id="nick"
+                                       type="text"
+                                       disabled />
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-center">
+                                <p class="h5" style="margin-bottom: 0px;">Почта: </p>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control border"
+                                       id="email"
+                                       type="email"
+                                       disabled />
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-center">
+                                <p class="h5" style="margin-bottom: 0px;">Возраст: </p>
+                            </div>
+                            <div class="col-5">
+                                <input class="form-control border"
+                                       id="age"
+                                       type="number"
+                                       disabled />
+                            </div>
+                        </div>
+                        <div class="d-flex row p-b-15">
+                            <div class="col-2 d-flex align-items-top">
+                                <p class="h5" style="margin-bottom: 0px;">Описание: </p>
+                            </div>
+                            <div class="col-5">
+                                <textarea class="form-control border" id="description" rows="4" disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-l-20 mb-5">
+                        <div class="row">
+                            <button class="col-2 btn btn-primary m-r-25" type="button" id="closeProfile">Закрыть</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container border border-dark rounded-bottom bg-dark">
+                    <div class="row d-flex p-2 mt-3 mb-3">
+                        <p style="margin: 0px;" class="h3 text-dark">Что то</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <script src="/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript" charset="utf-8" src="chat.js"></script>
+</body>
+</html>

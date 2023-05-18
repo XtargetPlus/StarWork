@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Login_v8/css/util.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="/friend.css">
+    <title>Друзья</title>
+</head>
+<body style="background-color: antiquewhite">
+    <div id="main">
+        <div class="container">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-2">
+                <button class="btn btn-primary me-md-5 col-2" type="button" id="myFriends">Друзья</button>
+                <button class="btn btn-primary me-md-5 col-2" type="button" id="addFriends">Добавить</button>
+                <button class="btn btn-primary col-2" type="button" id="applications">Заявки в друзья</button>
+            </div>
+        </div>
+        <div id="friendsContainer" class="container border border-dark rounded-2 mt-5 bg-white" hidden>
+            <div class="d-flex p-2 mt-3 mb-3">
+                <div>
+                    <p class="h3">Список друзей</p>
+                </div>
+                <div class="ms-auto col-4">
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" id="searchFriendText" class="form-control" />
+                            <label class="form-label" for="searchFriendText">Поиск</label>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="searchFriendButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 mb-3">
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light border text-center" scope="col">
+                        <tr>
+                            <th class="col-3" style="cursor: pointer;">
+                                <i class="datatable-sort-icon fas fa-arrow-up"></i>
+                                Ник пользователя
+                            </th>
+                            <th class="col-3" style="cursor: pointer;">
+                                Статус
+                            </th>
+                            <th class="col-2"></th>
+                            <th class="col-2"></th>
+                            <th class="col-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="friendsTable" class="text-center">
+                        <!--<tr>
+                            <td>Ник пользователя</td>
+                            <td>Статус</td>
+                            <td><button class="btn btn-primary" type="button" id="profileFriend">Профиль</button></td>
+                            <td><button class="btn btn-primary" type="button" id="chat">Чат</button></td>
+                            <td><button class="btn btn-danger" type="button" id="delete">Удалить</button></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="addFriendContainer" class="container border border-dark rounded-2 mt-5 bg-white" hidden>
+            <div class="d-flex p-2 mt-3 mb-3">
+                <div>
+                    <p class="h3">Список пользователей</p>
+                </div>
+                <div class="ms-auto col-4">
+                    <div class="input-group">
+                        <div class="form-outline">
+                            <input type="search" id="searchUserText" class="form-control" />
+                            <label class="form-label" for="searchUserText">Поиск</label>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="searchUserButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 mb-3">
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light border text-center" scope="col">
+                        <tr>
+                            <th class="col-3" style="cursor: pointer;">
+                                <i class="datatable-sort-icon fas fa-arrow-up"></i>
+                                Ник пользователя
+                            </th>
+                            <th class="col-3" style="cursor: pointer;">
+                                Статус
+                            </th>
+                            <th class="col-3"></th>
+                            <th class="col-3"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTable" class="text-center">
+                        <!--<tr>
+                            <td id="userNick">Ник пользователя</td>
+                            <td id="userStatus">Статус</td>
+                            <td><button class="btn btn-primary" type="button" id="profileUser">Профиль</button></td>
+                            <td><button class="btn btn-primary" type="button" id="addFriend">Добавить в друзья</button></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="applicationsContainer" class="container border border-dark rounded-2 mt-5 bg-white" hidden>
+            <div class="d-flex p-2 mt-3 mb-3">
+                <div>
+                    <p class="h3">Список заявок</p>
+                </div>
+            </div>
+            <div class="p-2 mb-3">
+                <table class="table align-middle mb-0 bg-white">
+                    <thead class="bg-light border text-center" scope="col">
+                        <tr>
+                            <th class="col-3" style="cursor: pointer;">
+                                <i class="datatable-sort-icon fas fa-arrow-up"></i>
+                                Ник пользователя
+                            </th>
+                            <th class="col-3" style="cursor: pointer;">
+                                Статус
+                            </th>
+                            <th class="col-2"></th>
+                            <th class="col-2"></th>
+                            <th class="col-2"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="applicationsTable" class="text-center">
+                        <!--<tr>
+                            <td>Ник пользователя</td>
+                            <td>Статус</td>
+                            <td><button class="btn btn-primary" type="button" id="prifleFutureFriend">Профиль</button></td>
+                            <td><button class="btn btn-success" type="button" id="accept">Принять</button></td>
+                            <td><button class="btn btn-danger" type="button" id="cancel">Отклонить</button></td>
+                        </tr>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile" hidden>
+        <div class="container border border-dark rounded-2 mt-4 bg-white">
+            <div class="p-2 mt-3 mb-3">
+                <p class="h2 text-center">Профиль</p>
+            </div>
+            <div class="m-l-20 mb-3">
+                <div class="d-flex row p-b-15">
+                    <div class="col-2 d-flex align-items-center">
+                        <p class="h5" style="margin-bottom: 0px;">Ник: </p>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control border"
+                               id="nick"
+                               type="text"
+                               disabled />
+                    </div>
+                </div>
+                <div class="d-flex row p-b-15">
+                    <div class="col-2 d-flex align-items-center">
+                        <p class="h5" style="margin-bottom: 0px;">Почта: </p>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control border"
+                               id="email"
+                               type="email"
+                               disabled />
+                    </div>
+                </div>
+                <div class="d-flex row p-b-15">
+                    <div class="col-2 d-flex align-items-center">
+                        <p class="h5" style="margin-bottom: 0px;">Возраст: </p>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control border"
+                               id="age"
+                               type="number"
+                               disabled />
+                    </div>
+                </div>
+                <div class="d-flex row p-b-15">
+                    <div class="col-2 d-flex align-items-top">
+                        <p class="h5" style="margin-bottom: 0px;">Описание: </p>
+                    </div>
+                    <div class="col-3">
+                        <textarea class="form-control border" id="description" rows="4" disabled></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="m-l-20 mb-5">
+                <div class="row">
+                    <button class="col-2 btn btn-primary m-r-25" type="button" id="closeProfile">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer style="margin-bottom: 30px"></footer>
+
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.js"></script>
+    <script src="/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript" charset="utf-8" src="friend.js"></script>
+</body>
+</html>
